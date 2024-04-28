@@ -5,6 +5,7 @@ const btn = document.getElementById("get-location")
 const cityName = document.getElementById("ctname")
 const cityTime = document.getElementById("cttime")
 const cityTemp = document.getElementById("cttemp")
+console.log("this is weather application")
 
 async function getData(cityName){  //async tells there is something that'll take time but let's keep moving.
     const promi = await fetch(      //await pauses the execition of functn till promise arrives.
@@ -15,14 +16,13 @@ async function getData(cityName){  //async tells there is something that'll take
 
 btn.addEventListener("click", async ()=>{
     const cityVal = city.value;
+    console.log(cityVal)
     const rlt = await getData(cityVal)
     cityName.innerText = `${rlt.location.name}, ${rlt.location.region} - ${rlt.location.country}`;
     cityTime.innerText = rlt.location.localtime;
     cityTemp.innerText = rlt.current.temp_c + ' °C';
     
 }) 
-
-console.log("hello everybody git seekh lo")
 
 
 
